@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Apple Color Emoji', Arial, sans-serif;
+            background-color: #f7f6f3;
+            color: #37352f;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #2383e2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .header {
+            background: #ffffff;
+            padding: 16px 20px;
+            border-radius: 6px;
+            border: 1px solid #e9e9e7;
+            margin-bottom: 16px;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .subtitle {
+            color: #787774;
+            font-size: 14px;
+        }
+        
+        .report-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .report-card {
+            background: #ffffff;
+            border: 1px solid #e9e9e7;
+            border-radius: 6px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .report-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .report-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #37352f;
+        }
+        
+        .risk-badge {
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .risk-critical { background: #ffe2dd; color: #d44c47; }
+        .risk-high { background: #fff3d4; color: #cb912f; }
+        .risk-medium { background: #e3f5ff; color: #2383e2; }
+        .risk-low { background: #e5f4e3; color: #448361; }
+        
+        .report-meta {
+            font-size: 13px;
+            color: #787774;
+            margin-bottom: 8px;
+        }
+        
+        .report-summary {
+            font-size: 13px;
+            color: #37352f;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Dashboard</a>
+        
+        <div class="header">
+            <div class="title">📋 Report History</div>
+            <div class="subtitle">Past risk assessment reports</div>
+        </div>
+        
+        <div class="report-list">
+            <!-- ========================================
+                 ADD NEW REPORTS AT THE TOP
+                 Copy this block and update the details
+                 ======================================== -->
+            
+            <!-- Week of Jan 27, 2026 -->
+            <a href="2026-01-27.html" class="report-card">
+                <div class="report-header">
+                    <div class="report-title">📱 Android RC 4.33.0</div>
+                    <span class="risk-badge risk-high">MEDIUM-HIGH</span>
+                </div>
+                <div class="report-meta">
+                    Week of January 27, 2026 • 5 P0 items, 4 red flags
+                </div>
+                <div class="report-summary">
+                    Multiple large UI redesigns with 500+ line changes. Race condition fix in speech/WebSocket library. Several fixes touching AI Lesson core flow from 4 different PRs.
+                </div>
+            </a>
+            
+            <!-- Week of Jan 20, 2026 (Example) -->
+            <a href="2026-01-20.html" class="report-card">
+                <div class="report-header">
+                    <div class="report-title">📱 Android RC 4.32.0</div>
+                    <span class="risk-badge risk-medium">MEDIUM</span>
+                </div>
+                <div class="report-meta">
+                    Week of January 20, 2026 • 3 P0 items, 2 red flags
+                </div>
+                <div class="report-summary">
+                    Payment flow updates and onboarding improvements. Minor UI changes across lesson cards. Database schema optimization.
+                </div>
+            </a>
+            
+            <!-- Week of Jan 13, 2026 (Example) -->
+            <a href="2026-01-13.html" class="report-card">
+                <div class="report-header">
+                    <div class="report-title">📱 Android RC 4.31.0</div>
+                    <span class="risk-badge risk-low">LOW</span>
+                </div>
+                <div class="report-meta">
+                    Week of January 13, 2026 • 1 P0 item, 1 red flag
+                </div>
+                <div class="report-summary">
+                    Bug fixes and localization updates. Analytics event tracking improvements. No major feature changes.
+                </div>
+            </a>
+            
+            <!-- 
+            ========================================
+            TO ADD A NEW REPORT:
+            1. Copy the entire <a href="...">...</a> block above
+            2. Paste it at the TOP of this list
+            3. Update:
+               - href (filename: YYYY-MM-DD.html)
+               - Report title (RC version)
+               - Risk badge class and text
+               - Week date
+               - P0 count and red flags
+               - Summary text
+            ========================================
+            -->
+        </div>
+    </div>
+</body>
+</html>

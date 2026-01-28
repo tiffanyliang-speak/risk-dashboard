@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Risk Report - Jan 27, 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Apple Color Emoji', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #37352f;
+            padding: 12px 16px;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #2383e2;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .header {
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon {
+            margin-right: 6px;
+        }
+        
+        .subtitle {
+            color: #787774;
+            font-size: 12px;
+        }
+        
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+            padding: 6px 10px;
+            background: #f7f6f3;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            font-size: 12px;
+            color: #787774;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #37352f;
+            font-size: 12px;
+        }
+        
+        .section {
+            background: #ffffff;
+            border: 1px solid #e9e9e7;
+            border-radius: 3px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        
+        .section-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #37352f;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title .emoji {
+            margin-right: 5px;
+        }
+        
+        .risk-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .risk-critical { background: #ffe2dd; color: #d44c47; }
+        .risk-high { background: #fff3d4; color: #cb912f; }
+        .risk-medium { background: #e3f5ff; color: #2383e2; }
+        .risk-low { background: #e5f4e3; color: #448361; }
+        
+        .summary-box {
+            background: #f7f6f3;
+            padding: 8px 10px;
+            border-radius: 3px;
+            border-left: 3px solid #cb912f;
+            margin-bottom: 8px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .risk-item {
+            padding: 6px 10px;
+            background: #f7f6f3;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            border-left: 3px solid #e9e9e7;
+        }
+        
+        .risk-item.critical { border-left-color: #d44c47; background: #fff5f5; }
+        .risk-item.high { border-left-color: #cb912f; background: #fffcf5; }
+        .risk-item.medium { border-left-color: #2383e2; background: #f5faff; }
+        
+        .risk-item-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #37352f;
+            font-size: 13px;
+            line-height: 1.3;
+        }
+        
+        .risk-item-description {
+            color: #787774;
+            font-size: 12px;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+        
+        .risk-item-impact {
+            color: #37352f;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+        
+        .footer {
+            margin-top: 12px;
+            padding: 8px 10px;
+            background: #f7f6f3;
+            border-radius: 3px;
+            text-align: center;
+            color: #787774;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <a href="../index.html" class="back-link">← Back to Dashboard</a>
+            <a href="index.html" class="back-link">📋 View All Reports</a>
+        </div>
+        
+        <div class="header">
+            <div class="title">
+                <span class="icon">📱</span>
+                Android RC 4.33.0 — Risk Assessment
+            </div>
+            <div class="subtitle">Automated risk analysis by Claude AI</div>
+        </div>
+        
+        <!-- ========================================
+             UPDATE: Timeline info
+             ======================================== -->
+        <div class="timeline">
+            <span class="timeline-item">Release:</span>
+            <span class="timeline-date">Android RC 4.33.0</span>
+            <span class="timeline-item">•</span>
+            <span class="timeline-item">Week of:</span>
+            <span class="timeline-date">January 27, 2026</span>
+        </div>
+        
+        <!-- ========================================
+             OVERALL RISK LEVEL SECTION
+             UPDATE: Risk level and summary
+             ======================================== -->
+        <div class="section">
+            <div class="risk-badge risk-high">⚠️ MEDIUM-HIGH RISK</div>
+            
+            <div class="summary-box">
+                <strong>Overall Risk Level: Medium-High</strong><br>
+                • Multiple large UI redesigns (Favorites, Publish to Community) with 500+ line changes<br>
+                • Several fixes touching AI Lesson core flow from 4 different PRs<br>
+                • Race condition fix in speech/WebSocket library affects all speaking exercises
+            </div>
+        </div>
+        
+        <!-- ========================================
+             P0 FOCUS AREAS SECTION
+             UPDATE: All P0 items
+             ======================================== -->
+        <div class="section">
+            <div class="section-title">
+                <span class="emoji">🎯</span>
+                P0 — Top QA Focus Areas (Must Test)
+            </div>
+            
+            <div class="risk-item critical">
+                <div class="risk-item-title">
+                    <span class="emoji">🎤</span>
+                    VOICE-827 — Speaking card race condition fix
+                </div>
+                <div class="risk-item-description">
+                    Core speech functionality that could cause exercises to hang
+                </div>
+                <div class="risk-item-impact">
+                    Needs stress testing across lesson types
+                </div>
+            </div>
+            
+            <div class="risk-item critical">
+                <div class="risk-item-title">
+                    <span class="emoji">📱</span>
+                    SCO-545 — Blank screen after AI Lessons
+                </div>
+                <div class="risk-item-description">
+                    Navigation fix for critical post-lesson flow
+                </div>
+                <div class="risk-item-impact">
+                    Test all lesson completion flows and transitions
+                </div>
+            </div>
+            
+            <div class="risk-item critical">
+                <div class="risk-item-title">
+                    <span class="emoji">🌐</span>
+                    NUX-1844 — Publish to Community UI overhaul
+                </div>
+                <div class="risk-item-description">
+                    Major changes across community publishing flow
+                </div>
+                <div class="risk-item-impact">
+                    High regression surface - test all publishing paths
+                </div>
+            </div>
+            
+            <div class="risk-item critical">
+                <div class="risk-item-title">
+                    <span class="emoji">⭐</span>
+                    NUX-1874 — Favorites screen redesign
+                </div>
+                <div class="risk-item-description">
+                    Complete UI overhaul (556 new lines)
+                </div>
+                <div class="risk-item-impact">
+                    Test all entry points to favorites
+                </div>
+            </div>
+            
+            <div class="risk-item critical">
+                <div class="risk-item-title">
+                    <span class="emoji">🗣️</span>
+                    LSN-2091 — AI Lesson ASR transcription UX
+                </div>
+                <div class="risk-item-description">
+                    Changes to speech recognition display, hints, corrections, and subtitles (464 insertions)
+                </div>
+                <div class="risk-item-impact">
+                    Affects core AI lesson experience
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========================================
+             NO CODE CHANGES SECTION
+             UPDATE: Areas with no changes
+             ======================================== -->
+        <div class="section">
+            <div class="section-title">
+                <span class="emoji">✅</span>
+                No Code Changes (Zero Risk)
+            </div>
+            
+            <div style="padding: 8px 10px; background: #e5f4e3; border-radius: 3px; border-left: 3px solid #448361;">
+                <div style="color: #37352f; line-height: 1.4; font-size: 12px;">
+                    Localizations (string updates only), Onboarding flow, Payments/Subscriptions, Authentication, Permissions, App startup/lifecycle, Video lessons, Smart Review
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========================================
+             RED FLAGS SECTION
+             UPDATE: All red flags and unknowns
+             ======================================== -->
+        <div class="section">
+            <div class="section-title">
+                <span class="emoji">🚩</span>
+                Red Flags / Unknowns
+            </div>
+            
+            <div class="risk-item high">
+                <div class="risk-item-title">
+                    <span class="emoji">⚠️</span>
+                    4 PRs touch AI Lesson module
+                </div>
+                <div class="risk-item-description">
+                    LSN-2091, LSN-2102, LSN-2104, SCO-545
+                </div>
+                <div class="risk-item-impact">
+                    Overlapping changes increase regression risk
+                </div>
+            </div>
+            
+            <div class="risk-item high">
+                <div class="risk-item-title">
+                    <span class="emoji">⚠️</span>
+                    4 PRs touch Pronunciation Card component
+                </div>
+                <div class="risk-item-description">
+                    LP-3373, LP-3359, LP-3246, LP-3350
+                </div>
+                <div class="risk-item-impact">
+                    Potential interaction bugs
+                </div>
+            </div>
+            
+            <div class="risk-item high">
+                <div class="risk-item-title">
+                    <span class="emoji">🐛</span>
+                    Race condition fix (VOICE-827)
+                </div>
+                <div class="risk-item-description">
+                    Hard to reproduce by nature
+                </div>
+                <div class="risk-item-impact">
+                    May surface under specific timing conditions
+                </div>
+            </div>
+            
+            <div class="risk-item medium">
+                <div class="risk-item-title">
+                    <span class="emoji">💾</span>
+                    Database migration v16 (ENG-7868)
+                </div>
+                <div class="risk-item-description">
+                    Removes unused field
+                </div>
+                <div class="risk-item-impact">
+                    Needs upgrade path testing from previous versions
+                </div>
+            </div>
+            
+            <div class="risk-item medium">
+                <div class="risk-item-title">
+                    <span class="emoji">📝</span>
+                    Large Favorites redesign
+                </div>
+                <div class="risk-item-description">
+                    556 new lines added
+                </div>
+                <div class="risk-item-impact">
+                    Limited visible test coverage in diff
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========================================
+             FOOTER - UPDATE: Date
+             ======================================== -->
+        <div class="footer">
+            <strong>Automated Risk Assessment</strong><br>
+            Generated by Claude AI • January 27, 2026 at 4:46 PM PST<br>
+            Report ID: Android RC 4.33.0 • Confidence Level: High
+        </div>
+    </div>
+</body>
+</html>
