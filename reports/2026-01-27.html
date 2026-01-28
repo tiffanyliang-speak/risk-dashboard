@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RC Risk Report - January 27, 2026</title>
+    <title>RC Risk Report - Jan 27, 2026</title>
     <style>
         * {
             margin: 0;
@@ -109,10 +109,7 @@
             margin-bottom: 8px;
         }
         
-        .risk-critical { background: #ffe2dd; color: #d44c47; }
         .risk-high { background: #fff3d4; color: #cb912f; }
-        .risk-medium { background: #e3f5ff; color: #2383e2; }
-        .risk-low { background: #e5f4e3; color: #448361; }
         
         .summary-box {
             background: #f7f6f3;
@@ -184,9 +181,6 @@
             <div class="subtitle">Automated risk analysis by Claude AI</div>
         </div>
         
-        <!-- ========================================
-             UPDATE: Timeline info
-             ======================================== -->
         <div class="timeline">
             <span class="timeline-item">Release:</span>
             <span class="timeline-date">Android RC 4.33.0</span>
@@ -195,100 +189,72 @@
             <span class="timeline-date">January 27, 2026</span>
         </div>
         
-        <!-- ========================================
-             OVERALL RISK LEVEL SECTION
-             UPDATE: Risk level and summary
-             ======================================== -->
+        <!-- Overall Risk Level -->
         <div class="section">
-            <div class="risk-badge risk-mediumhigh">⚠️ MEDIUM-HIGH RISK</div>
+            <div class="risk-badge risk-high">⚠️ MEDIUM-HIGH RISK</div>
             
             <div class="summary-box">
-                <strong>Overall Risk Level: MEDIUM-HIGH</strong><br>
-                • Multiple critical user flow fixes (AI lessons blank screens, speaking cards race conditions) combined with significant UI redesigns and bottom sheet refactoring create elevated risk. The high volume of changes (134 files) across core lesson experiences requires thorough validation.
+                <strong>Overall Risk Level: Medium-High</strong><br>
+                • Multiple large UI redesigns (Favorites, Publish to Community) with 500+ line changes<br>
+                • Several fixes touching AI Lesson core flow from different PRs<br>
+                • Race condition fix in speech/WebSocket library affects all speaking exercises
             </div>
         </div>
         
-        <!-- ========================================
-             P0 FOCUS AREAS SECTION
-             UPDATE: All P0 items
-             ======================================== -->
+        <!-- P0 Section -->
         <div class="section">
             <div class="section-title">
                 <span class="emoji">🎯</span>
                 P0 — Top QA Focus Areas (Must Test)
             </div>
-
+            
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🎯</span>
-                    **SCO-545**: AI lesson blank screen fix - test all AI lesson completion flows and navigation paths to ensure no regressions in lesson transitions
+                    VOICE-827 — Speaking card race condition fix
                 </div>
                 <div class="risk-item-description">
-                    
-                </div>
-                <div class="risk-item-impact">
-                    **SCO-545**: AI lesson blank screen fix - test all AI lesson completion flows and navigation paths to ensure no regressions in lesson transitions
+                    Core speech functionality; any speaking exercise could hang. Needs stress testing across lesson types
                 </div>
             </div>
-
+            
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🎯</span>
-                    **VOICE-827**: Speaking cards race condition fix - validate speaking card functionality under various network conditions and rapid user interactions
+                    SCO-545 — Blank screen after AI Lessons
                 </div>
                 <div class="risk-item-description">
-                    
-                </div>
-                <div class="risk-item-impact">
-                    **VOICE-827**: Speaking cards race condition fix - validate speaking card functionality under various network conditions and rapid user interactions
+                    Navigation fix for critical user flow. Regression risk on post-lesson transitions
                 </div>
             </div>
-
+            
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🎯</span>
-                    **LSN-2102**: AI lesson bottom sheet problems fix - test all bottom sheet interactions in AI lessons including edge cases and orientation changes
+                    NUX-1844 — Publish to Community UI overhaul
                 </div>
                 <div class="risk-item-description">
-                    
-                </div>
-                <div class="risk-item-impact">
-                    **LSN-2102**: AI lesson bottom sheet problems fix - test all bottom sheet interactions in AI lessons including edge cases and orientation changes
+                    Major overhaul of community publishing flow; high regression surface
                 </div>
             </div>
-
+            
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🎯</span>
-                    **NUX-1844**: Community publish UI update - verify complete publish flow functionality and visual consistency across all screen states
+                    NUX-1874 — Favorites screen redesign
                 </div>
                 <div class="risk-item-description">
-                    
-                </div>
-                <div class="risk-item-impact">
-                    **NUX-1844**: Community publish UI update - verify complete publish flow functionality and visual consistency across all screen states
+                    Complete UI overhaul of favorites; test all entry points
                 </div>
             </div>
-
+            
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🎯</span>
-                    **NUX-1874**: Favorites screen redesign - test full favorites functionality including add/remove operations and navigation flows
+                    LSN-2091 — AI Lesson ASR transcription UX
                 </div>
                 <div class="risk-item-description">
-                    
-                </div>
-                <div class="risk-item-impact">
-                    **NUX-1874**: Favorites screen redesign - test full favorites functionality including add/remove operations and navigation flows
+                    Changes to speech recognition display, hints, corrections, and subtitles
                 </div>
             </div>
-
         </div>
         
-        <!-- ========================================
-             OTHER NOTABLE CHANGES SECTION
-             UPDATE: Other concerns and red flags
-             ======================================== -->
+        <!-- Other Notable Changes -->
         <div class="section">
             <div class="section-title">
                 <span class="emoji">📋</span>
@@ -297,74 +263,42 @@
             
             <div class="risk-item high">
                 <div class="risk-item-title">
-                    <span class="emoji">⚠️</span>
-                    4 PRs touch AI Lesson module
+                    4 PRs touch AI Lesson module (LSN-2091, LSN-2102, LSN-2104, SCO-545)
                 </div>
                 <div class="risk-item-description">
-                    LSN-2091, LSN-2102, LSN-2104, SCO-545
-                </div>
-                <div class="risk-item-impact">
                     Overlapping changes increase regression risk
                 </div>
             </div>
             
             <div class="risk-item high">
                 <div class="risk-item-title">
-                    <span class="emoji">⚠️</span>
-                    4 PRs touch Pronunciation Card component
-                </div>
-                <div class="risk-item-description">
-                    LP-3373, LP-3359, LP-3246, LP-3350
-                </div>
-                <div class="risk-item-impact">
-                    Potential interaction bugs
-                </div>
-            </div>
-            
-            <div class="risk-item high">
-                <div class="risk-item-title">
-                    <span class="emoji">🐛</span>
                     Race condition fix (VOICE-827)
                 </div>
                 <div class="risk-item-description">
-                    Hard to reproduce by nature
-                </div>
-                <div class="risk-item-impact">
-                    May surface under specific timing conditions
+                    Hard to reproduce; may surface under specific timing conditions
                 </div>
             </div>
             
             <div class="risk-item medium">
                 <div class="risk-item-title">
-                    <span class="emoji">💾</span>
                     Database migration v16 (ENG-7868)
                 </div>
                 <div class="risk-item-description">
-                    Removes unused field
-                </div>
-                <div class="risk-item-impact">
                     Needs upgrade path testing from previous versions
                 </div>
             </div>
             
             <div class="risk-item medium">
                 <div class="risk-item-title">
-                    <span class="emoji">📝</span>
                     Large Favorites redesign
                 </div>
                 <div class="risk-item-description">
-                    556 new lines added
-                </div>
-                <div class="risk-item-impact">
                     Limited visible test coverage in diff
                 </div>
             </div>
         </div>
         
-        <!-- ========================================
-             NO CODE CHANGES SECTION
-             UPDATE: Areas with no changes
-             ======================================== -->
+        <!-- No Code Changes -->
         <div class="section">
             <div class="section-title">
                 <span class="emoji">✅</span>
@@ -373,18 +307,16 @@
             
             <div style="padding: 8px 10px; background: #e5f4e3; border-radius: 3px; border-left: 3px solid #448361;">
                 <div style="color: #37352f; line-height: 1.4; font-size: 12px;">
-                    Version updates, localization updates from Lokalise, open source license dark mode fix, database cleanup of unused vocabProficiency field
+                    Localizations (string updates only), Onboarding flow, Payments/Subscriptions, Authentication, Permissions, App startup/lifecycle
                 </div>
             </div>
         </div>
         
-        <!-- ========================================
-             FOOTER - UPDATE: Date
-             ======================================== -->
+        <!-- Footer -->
         <div class="footer">
             <strong>Automated Risk Assessment</strong><br>
-            Generated by Claude AI • January 27, 2026 at 08:40 PM PST<br>
-            Report ID: Android RC 4.33.0 • Confidence Level: High
+            Generated by Claude AI • January 27, 2026 at 6:49 PM PST<br>
+            Report ID: Android RC 4.33.0
         </div>
     </div>
 </body>

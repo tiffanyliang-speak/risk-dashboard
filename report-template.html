@@ -222,66 +222,46 @@
             
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🎤</span>
                     VOICE-827 — Speaking card race condition fix
                 </div>
                 <div class="risk-item-description">
-                    Core speech functionality that could cause exercises to hang
-                </div>
-                <div class="risk-item-impact">
-                    Needs stress testing across lesson types
+                    Core speech functionality; any speaking exercise could hang. Needs stress testing across lesson types
                 </div>
             </div>
             
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">📱</span>
                     SCO-545 — Blank screen after AI Lessons
                 </div>
                 <div class="risk-item-description">
-                    Navigation fix for critical post-lesson flow
-                </div>
-                <div class="risk-item-impact">
-                    Test all lesson completion flows and transitions
+                    Navigation fix for critical user flow. Regression risk on post-lesson transitions
                 </div>
             </div>
             
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🌐</span>
-                    NUX-1844 — Publish to Community UI overhaul
+                    NUX-1844 — Publish to Community UI
                 </div>
                 <div class="risk-item-description">
-                    Major changes across community publishing flow
-                </div>
-                <div class="risk-item-impact">
-                    High regression surface - test all publishing paths
+                    Major overhaul of community publishing flow; high regression surface
                 </div>
             </div>
             
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">⭐</span>
                     NUX-1874 — Favorites screen redesign
                 </div>
                 <div class="risk-item-description">
-                    Complete UI overhaul (556 new lines)
-                </div>
-                <div class="risk-item-impact">
-                    Test all entry points to favorites
+                    Complete UI overhaul of favorites; test all entry points
                 </div>
             </div>
             
             <div class="risk-item critical">
                 <div class="risk-item-title">
-                    <span class="emoji">🗣️</span>
                     LSN-2091 — AI Lesson ASR transcription UX
                 </div>
                 <div class="risk-item-description">
-                    Changes to speech recognition display, hints, corrections, and subtitles (464 insertions)
-                </div>
-                <div class="risk-item-impact">
-                    Affects core AI lesson experience
+                    Changes to speech recognition display, hints, corrections, and subtitles
                 </div>
             </div>
         </div>
@@ -298,65 +278,36 @@
             
             <div class="risk-item high">
                 <div class="risk-item-title">
-                    <span class="emoji">⚠️</span>
-                    4 PRs touch AI Lesson module
+                    4 PRs touch AI Lesson module (LSN-2091, LSN-2102, LSN-2104, SCO-545)
                 </div>
                 <div class="risk-item-description">
-                    LSN-2091, LSN-2102, LSN-2104, SCO-545
-                </div>
-                <div class="risk-item-impact">
                     Overlapping changes increase regression risk
                 </div>
             </div>
             
             <div class="risk-item high">
                 <div class="risk-item-title">
-                    <span class="emoji">⚠️</span>
-                    4 PRs touch Pronunciation Card component
-                </div>
-                <div class="risk-item-description">
-                    LP-3373, LP-3359, LP-3246, LP-3350
-                </div>
-                <div class="risk-item-impact">
-                    Potential interaction bugs
-                </div>
-            </div>
-            
-            <div class="risk-item high">
-                <div class="risk-item-title">
-                    <span class="emoji">🐛</span>
                     Race condition fix (VOICE-827)
                 </div>
                 <div class="risk-item-description">
-                    Hard to reproduce by nature
-                </div>
-                <div class="risk-item-impact">
-                    May surface under specific timing conditions
+                    Hard to reproduce; may surface under specific timing conditions
                 </div>
             </div>
             
             <div class="risk-item medium">
                 <div class="risk-item-title">
-                    <span class="emoji">💾</span>
                     Database migration v16 (ENG-7868)
                 </div>
                 <div class="risk-item-description">
-                    Removes unused field
-                </div>
-                <div class="risk-item-impact">
                     Needs upgrade path testing from previous versions
                 </div>
             </div>
             
             <div class="risk-item medium">
                 <div class="risk-item-title">
-                    <span class="emoji">📝</span>
                     Large Favorites redesign
                 </div>
                 <div class="risk-item-description">
-                    556 new lines added
-                </div>
-                <div class="risk-item-impact">
                     Limited visible test coverage in diff
                 </div>
             </div>
